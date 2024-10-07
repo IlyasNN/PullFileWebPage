@@ -11,10 +11,12 @@
     var downloadButton = document.getElementById('downloadBtn');
 
     downloadButton.addEventListener('click', function(event) {
-<!--      fetch("browser://someFile.txt") // api for the get request-->
-      fetch ("browser://someFile.txt", { mode: 'no-cors' })
-          .then(response => response.json())
-          .then(data => console.log(data));
+      fetch ("browser://someFile.txt", {
+        mode: "no-cors",
+        headers: {"Access-Control-Allow-Origin": "*"}
+      })
+<!--          .then(response => response.json())-->
+<!--          .then(data => console.log(data));-->
     });
 
 
