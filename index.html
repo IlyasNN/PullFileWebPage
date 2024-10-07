@@ -3,24 +3,35 @@
     <title>Pull file page</title>
   </head>
   <body>
-    <button onclick="download();" id="downloadBtn">
+    <button id="downloadBtn">
       Download
     </button>
   </body>
   <script>
-    function download() {
-      try {
-        let response = await fetch("browser://someFile.txt");
-        if (response.ok) { // если HTTP-статус в диапазоне 200-299
-          let json = await response.json();
-          alert("OK");
-        } else {
-          alert("Ошибка HTTP: " + response.status);
-        }
 
-      } catch (error) {
-        alert(error.message);
-      }
-    }
+
+
+    var downloadButton = document.getElementById('downloadBtn');
+
+<!--      try {-->
+<!--        let response = await fetch("browser://someFile.txt");-->
+<!--        if (response.ok) { // если HTTP-статус в диапазоне 200-299-->
+<!--          let json = await response.json();-->
+<!--          alert("OK");-->
+<!--        } else {-->
+<!--          alert("Ошибка HTTP: " + response.status);-->
+<!--        }-->
+<!---->
+<!--      } catch (error) {-->
+<!--        alert(error.message);-->
+<!--      }-->
+
+    downloadButton.addEventListener('click', function(event) {
+      fetch("browser://someFile.txt") // api for the get request
+          .then(response => response.json())
+          .then(data => console.log(data));
+    });
+
+
   </script>
 </html>
