@@ -11,7 +11,9 @@
     var downloadButton = document.getElementById('downloadBtn');
 
     downloadButton.addEventListener('click', function(event) {
-      fetch("neuro-translator://someFile.txt");
+      fetch("neuro-translator://someFile.txt", {
+        mode: 'cors'
+      });
     });
 
 
