@@ -28,8 +28,24 @@
 
     downloadButton.addEventListener('click', function(event) {
       fetch("browser://someFile.txt") // api for the get request
-          .then(response => response.json())
-          .then(data => console.log(data));
+      .then(response => {
+        // Check if the request was successful
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        // Parse the response as JSON
+        return response.json();
+      })
+      .then(data => {
+        // Handle the JSON data
+        console.log(data);
+      })
+      .catch(error => {
+        // Handle any errors that occurred during the fetch
+        console.error('Fetch error:', error);
+      })
+<!--          .then(response => response.json())-->
+<!--          .then(data => console.log(data));-->
     });
 
 
