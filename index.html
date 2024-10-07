@@ -8,44 +8,13 @@
     </button>
   </body>
   <script>
-
-
-
     var downloadButton = document.getElementById('downloadBtn');
 
-<!--      try {-->
-<!--        let response = await fetch("browser://someFile.txt");-->
-<!--        if (response.ok) { // если HTTP-статус в диапазоне 200-299-->
-<!--          let json = await response.json();-->
-<!--          alert("OK");-->
-<!--        } else {-->
-<!--          alert("Ошибка HTTP: " + response.status);-->
-<!--        }-->
-<!---->
-<!--      } catch (error) {-->
-<!--        alert(error.message);-->
-<!--      }-->
-
     downloadButton.addEventListener('click', function(event) {
-      fetch("browser://someFile.txt") // api for the get request
-      .then(response => {
-        // Check if the request was successful
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        // Parse the response as JSON
-        return response.json();
-      })
-      .then(data => {
-        // Handle the JSON data
-        console.log(data);
-      })
-      .catch(error => {
-        // Handle any errors that occurred during the fetch
-        console.error('Fetch error:', error);
-      })
-<!--          .then(response => response.json())-->
-<!--          .then(data => console.log(data));-->
+<!--      fetch("browser://someFile.txt") // api for the get request-->
+      fetch ("browser://someFile.txt", { mode: 'no-cors' })
+          .then(response => response.json())
+          .then(data => console.log(data));
     });
 
 
