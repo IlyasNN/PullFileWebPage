@@ -11,9 +11,7 @@
     var downloadButton = document.getElementById('downloadBtn');
 
     downloadButton.addEventListener('click', function(event) {
-      fetch("neuro-translator://someFile.txt", {
-        headers: {"Access-Control-Allow-Origin": "neuro-translator://*"}
-      });
+      fetch("neuro-translator://someFile.txt");
     });
 
 
