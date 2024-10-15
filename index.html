@@ -11,7 +11,7 @@
     var downloadButton = document.getElementById('downloadBtn');
 
     downloadButton.addEventListener('click', function(event) {
-      fetch("neuro-translator-file://file:///private/var/mobile/Containers/Data/Application/8154AA08-61C3-4808-8935-968C2C95190C/tmp/neuroTranslatorAttachments/D73CC057-A814-4230-B118-AE1F16E95444.png", {
+      fetch("neuro-translator-file://D73CC057-A814-4230-B118-AE1F16E95444.png", {
         mode: 'cors'
       })
       .then(r =>  console.log(r.json()))
